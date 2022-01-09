@@ -8,34 +8,22 @@ import org.junit.Assert;
 
 public class DateUtilsTest {
 	
-	@SuppressWarnings("deprecation")
 	@Test
-	public void deveRetornarTrueParaDatasFuturas() {
-		
-		LocalDate date = LocalDate.of(2019, 01, 01);
+	public void shouldReturnTrueWithFutureDates() {
+		LocalDate date = LocalDate.of(2030, 01, 01);
 		Assert.assertTrue(DateUtils.isEqualOrFutureDate(date));
-
-		
 	}
 	
 	@Test
-	public void deveRetornarFalseParaDatasPassadas() {
-		
-		LocalDate date = LocalDate.of(2019, 01, 01);
-		Assert.assertTrue(DateUtils.isEqualOrFutureDate(date));
-
-		
-	}
-	
-	
-	@Test
-	public void deveRetornarTrueParaDatasAtual() {
-		
+	public void shouldReturnTrueWithPresentDate() {
 		LocalDate date = LocalDate.now();
 		Assert.assertTrue(DateUtils.isEqualOrFutureDate(date));
-
-		
 	}
 	
+	@Test
+	public void shouldReturnFalseWithPastDates() {
+		LocalDate date = LocalDate.of(2012, 01, 01);
+		Assert.assertFalse(DateUtils.isEqualOrFutureDate(date));
+	}
 
 }
