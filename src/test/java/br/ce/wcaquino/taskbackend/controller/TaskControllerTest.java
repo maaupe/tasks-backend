@@ -36,7 +36,6 @@ public class TaskControllerTest {
 		Task todo = new Task();
 		todo.setTask("Descricao");
 		todo.setDueDate(LocalDate.now());
-		
 		try {
 			controller.save(todo);	
 		} catch (ValidationException e) {
